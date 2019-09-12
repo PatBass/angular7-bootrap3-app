@@ -1,0 +1,18 @@
+<br><br><br><br>
+<!-- <h1 [ngClass]="{
+    'purple': h1Style,
+    'large': h1Style
+}">Home</h1> 
+<button (click)="firstClick()">Click me</button> -->
+
+<h1>Home</h1>
+<br><br>
+<div class="container">
+    <ul *ngIf="users" class="list-group">
+        <li class="" *ngFor="let user of users.data" class="list-group-item">
+            <img [src]="user.avatar"><span>{{user.first_name}} {{user.last_name}}</span>
+                        
+        </li>
+    </ul>
+</div>
+

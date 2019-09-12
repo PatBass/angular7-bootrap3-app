@@ -1,0 +1,48 @@
+<br><br><br><br><br>
+<section class="container">
+    <h1>Contact Us</h1>
+    <br>
+    <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+
+        <span *ngIf="success" class="bg-success">Your message has been submitted!</span>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label>Name:</label><br>
+                    <input type="text" formControlName="name" class="form-control">
+                    <div *ngIf="submitted && messageForm.controls.name.errors">
+                        <span *ngIf="messageForm.controls.name.errors.required" class="bg-warning">A name value is
+                            required!
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label>Message:</label><br>
+                    <textarea formControlName="message" class="form-control"></textarea>
+                    <div *ngIf="submitted && messageForm.controls.message.errors">
+                        <span *ngIf="messageForm.controls.message.errors.required" class="bg-warning">A message is
+                            required!
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group pull-right">
+                    <input class="btn btn-primary" type="submit" value="Send Message" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div *ngIf="submitted">
+        <strong>Name:</strong>
+        {{messageForm.controls.name.value}}
+    </div>
+    <div *ngIf="submitted">
+        <strong>Message:</strong>
+        {{messageForm.controls.message.value}}
+    </div>
+</section>
